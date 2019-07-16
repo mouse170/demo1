@@ -10,13 +10,14 @@ export class HeaderComponent implements OnInit {
   sitename = 'The Will Will Web';
   subtitle = '記載著 <strong>Will</strong> 在網路世界的學習心得與技術分享';
   imgurl = '/assets/images/logo.png';
-
+  counter = 0;
   constructor() { }
 
   ngOnInit() {
   }
   changeTitle(isCtrlClicked: boolean) {
-    if (isCtrlClicked){
+    this.counter++;
+    if (isCtrlClicked) {
     this.sitename += '!';
   }
   }
