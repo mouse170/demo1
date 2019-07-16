@@ -15,8 +15,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-  changeTitle() {
+  changeTitle(isCtrlClicked: boolean) {
+    if (isCtrlClicked){
     this.sitename += '!';
+  }
   }
 
 }
