@@ -1,29 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'demo1';
   keyword = '';
   data: any = [];
-
+  constructor(private datasvc: DataService) {
+      this.datasvc.loadData().subscribe((data) => {
+        this.data = data;
+      });
+  }
   ngOnInit(): void {
-    fetch('/api/articles.json')
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      this.data = data;
-    });
+
+
   }
   doSearch(str) {
     this.keyword = str;
   }
 
-  doDelete(id){
+  doDelete(id) {
     console.log('Delete' + id);
   }
 }
