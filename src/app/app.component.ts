@@ -22,4 +22,8 @@ export class AppComponent {
   doSearch(str) {
     this.keyword = str;
   }
+
+  doDelete(id){
+    console.log('Delete' + id);
+  }
 }
